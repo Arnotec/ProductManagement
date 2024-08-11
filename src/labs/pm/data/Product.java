@@ -35,7 +35,11 @@ public class Product {
     private int id;
     private String name;
     private BigDecimal price;
+    private Rating rating;
 
+    public Product() {
+        this(0, "no name", BigDecimal.ZERO);
+    }
 
     public int getId() {
         return id;
@@ -71,5 +75,18 @@ public class Product {
         return price.multiply(DISCOUNT_RATE).setScale(2, HALF_UP);
     }
 
+    public Rating getRating() {
+        return rating;
+    }
 
+    public Product(int id, String name, BigDecimal price, Rating rating) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.rating = rating;
+    }
+
+    public Product(int id, String name, BigDecimal price) {
+        this(id, name, price, Rating.NOT_RATED);
+    }
 }
