@@ -40,10 +40,6 @@ public abstract class Product {
     private BigDecimal price;
     private Rating rating;
 
-    public Product() {
-        this(0, "no name", BigDecimal.ZERO);
-    }
-
     public int getId() {
         return id;
     }
@@ -70,15 +66,11 @@ public abstract class Product {
         return rating;
     }
 
-    public Product(int id, String name, BigDecimal price, Rating rating) {
+    Product(int id, String name, BigDecimal price, Rating rating) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.rating = rating;
-    }
-
-    public Product(int id, String name, BigDecimal price) {
-        this(id, name, price, Rating.NOT_RATED);
     }
 
     public abstract Product applyRating(Rating newRating);
