@@ -99,8 +99,8 @@ public sealed class Product permits Drink, Food {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o instanceof Product) {
-            Product product = (Product) o;
+        if (o instanceof Product product) {
+//            Product product = (Product) o;
             return id == product.id && Objects.equals(name, product.name);
         }
         return false;
