@@ -27,7 +27,7 @@ import static java.math.RoundingMode.HALF_UP;
  * @version 4.0
  * @author oracle
  **/
-public abstract class Product {
+public sealed class Product permits Drink, Food {
     /**
      * A constant that defines a
      * {@link java.math.BigDecimal BigDecimal} value of the discount rate
@@ -73,7 +73,9 @@ public abstract class Product {
         this.rating = rating;
     }
 
-    public abstract Product applyRating(Rating newRating);
+    public Product applyRating(Rating newRating) {
+        return new Product(getId(), getName(), getPrice(), newRating);
+    }
 
     /**
      * Assumes that the best before date is today
