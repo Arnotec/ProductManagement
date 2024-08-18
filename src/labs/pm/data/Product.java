@@ -27,7 +27,7 @@ import static java.math.RoundingMode.HALF_UP;
  * @version 4.0
  * @author oracle
  **/
-public sealed class Product permits Drink, Food {
+public sealed class Product implements Rateable<Product> permits Drink, Food {
     /**
      * A constant that defines a
      * {@link java.math.BigDecimal BigDecimal} value of the discount rate
